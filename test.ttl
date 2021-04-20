@@ -1,0 +1,205 @@
+@prefix cwlprov: <https://w3id.org/cwl/prov#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wf: <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#> .
+@prefix wf4ever: <http://purl.org/wf4ever/wf4ever#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:uuid:1731491f-582c-4412-b553-a9c8108ffeb1> a wf4ever:File,
+            wfprov:Artifact,
+            prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                prov:activity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ;
+                prov:atTime "2021-03-03T11:44:52.479387"^^xsd:dateTime ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/primary/compiled_renamed_class> ],
+            [ a prov:Generation ;
+                prov:activity <urn:uuid:9280bac2-1bef-405f-abec-5abeb8ca77ad> ;
+                prov:atTime "2021-03-03T11:44:52.477889"^^xsd:dateTime ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/rename/renamedFile> ] ;
+        prov:specializationOf <urn:hash::sha1:fdb876b40ad9ebc7fee873212e02d5940588642e> ;
+        cwlprov:basename "MyRenamedFile.class"^^xsd:string ;
+        cwlprov:nameext ".class"^^xsd:string ;
+        cwlprov:nameroot "MyRenamedFile"^^xsd:string .
+
+    wf:main a wfdesc:Workflow,
+            prov:Entity,
+            prov:Plan ;
+        rdfs:label "Prospective provenance"^^xsd:string ;
+        wfdesc:hasSubProcess <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/compile>,
+            <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/rename>,
+            <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/untar> .
+
+    <urn:hash::sha1:084144159163a53537389bf205dce76ba47ff7c2> a wfprov:Artifact,
+            prov:Entity .
+
+    <urn:uuid:04634e3b-e6e2-4ab7-b03e-eeee51180670> a wf4ever:File,
+            wfprov:Artifact,
+            prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                prov:activity <urn:uuid:d3c29152-01eb-44a5-b3ff-1481e54b56fe> ;
+                prov:atTime "2021-03-03T11:44:50.224179"^^xsd:dateTime ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/untar/extracted_file> ] ;
+        prov:specializationOf <urn:hash::sha1:084144159163a53537389bf205dce76ba47ff7c2> ;
+        cwlprov:basename "Hello.java"^^xsd:string ;
+        cwlprov:nameext ".java"^^xsd:string ;
+        cwlprov:nameroot "Hello"^^xsd:string .
+
+    <urn:uuid:1462a808-bedf-4713-8884-a55d72be518b> a prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "Container execution of image openjdk:9.0.1-11-slim"^^xsd:string ;
+        cwlprov:image "openjdk:9.0.1-11-slim"^^xsd:string .
+
+    <urn:uuid:2f19b3ed-49fb-4b65-b4fa-d1b66ef88b96> a wf4ever:File,
+            wfprov:Artifact,
+            prov:Entity ;
+        prov:specializationOf <urn:hash::sha1:dadad7439e22dbd889775c71b7c3202366f61064> ;
+        cwlprov:basename "hello.tar"^^xsd:string ;
+        cwlprov:nameext ".tar"^^xsd:string ;
+        cwlprov:nameroot "hello"^^xsd:string .
+
+    <urn:uuid:35412ab7-0325-46aa-ab3d-75874abcb5a5> a wf4ever:File,
+            wfprov:Artifact,
+            prov:Entity ;
+        prov:qualifiedGeneration [ a prov:Generation ;
+                prov:activity <urn:uuid:9ca6c2b3-7f19-4836-8209-487f67aa2dcc> ;
+                prov:atTime "2021-03-03T11:44:52.470143"^^xsd:dateTime ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/compile/classfile> ] ;
+        prov:specializationOf <urn:hash::sha1:fdb876b40ad9ebc7fee873212e02d5940588642e> ;
+        cwlprov:basename "Hello.class"^^xsd:string ;
+        cwlprov:nameext ".class"^^xsd:string ;
+        cwlprov:nameroot "Hello"^^xsd:string .
+
+    <urn:uuid:9280bac2-1bef-405f-abec-5abeb8ca77ad> a wfprov:ProcessRun,
+            prov:Activity ;
+        rdfs:label "Run of workflow/packed.cwl#main/rename"^^xsd:string ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:agent <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> ;
+                prov:hadPlan <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/rename> ] ;
+        prov:qualifiedEnd [ a prov:End ;
+                prov:atTime "2021-03-03T11:44:52.477883"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ] ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:atTime "2021-03-03T11:44:52.473163"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:52.473546"^^xsd:dateTime ;
+                prov:entity <urn:uuid:35412ab7-0325-46aa-ab3d-75874abcb5a5> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/rename/fileToBeRenamed> ],
+            [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:52.473913"^^xsd:dateTime ;
+                prov:entity <urn:hash::sha1:4da1b0556b3ab15c1909c9ad86f781b161255c9f> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/rename/newName> ] .
+
+    <urn:uuid:9ca6c2b3-7f19-4836-8209-487f67aa2dcc> a wfprov:ProcessRun,
+            prov:Activity ;
+        rdfs:label "Run of workflow/packed.cwl#main/compile"^^xsd:string ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:agent <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> ;
+                prov:hadPlan <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/compile> ] ;
+        prov:qualifiedEnd [ a prov:End ;
+                prov:atTime "2021-03-03T11:44:52.470136"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ] ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:atTime "2021-03-03T11:44:50.228129"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:50.530971"^^xsd:dateTime ;
+                prov:entity <urn:uuid:04634e3b-e6e2-4ab7-b03e-eeee51180670> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/compile/src> ] ;
+        prov:wasAssociatedWith <urn:uuid:1462a808-bedf-4713-8884-a55d72be518b> .
+
+    <urn:uuid:cd0fe38a-2eca-4dd2-929f-5e1e7d5329cb> a wf4ever:File,
+            wfprov:Artifact,
+            prov:Entity ;
+        prov:specializationOf <urn:hash::sha1:dadad7439e22dbd889775c71b7c3202366f61064> ;
+        cwlprov:basename "hello.tar"^^xsd:string ;
+        cwlprov:nameext ".tar"^^xsd:string ;
+        cwlprov:nameroot "hello"^^xsd:string .
+
+    <urn:uuid:d3c29152-01eb-44a5-b3ff-1481e54b56fe> a wfprov:ProcessRun,
+            prov:Activity ;
+        rdfs:label "Run of workflow/packed.cwl#main/untar"^^xsd:string ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:agent <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> ;
+                prov:hadPlan <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/untar> ] ;
+        prov:qualifiedEnd [ a prov:End ;
+                prov:atTime "2021-03-03T11:44:50.224174"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ] ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:atTime "2021-03-03T11:44:50.215306"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:50.216125"^^xsd:dateTime ;
+                prov:entity <urn:hash::sha1:eb07afb8bc2f3dceff34c8a8e82e5fe716819d6f> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/untar/extractfile> ],
+            [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:50.216501"^^xsd:dateTime ;
+                prov:entity <urn:uuid:2f19b3ed-49fb-4b65-b4fa-d1b66ef88b96> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/untar/tarfile> ] .
+
+    <urn:uuid:e700ad34-dc9b-46f3-a929-e2679187a066> a prov:Agent .
+
+    <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/compile> a wfdesc:Process,
+            prov:Entity,
+            prov:Plan .
+
+    <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/rename> a wfdesc:Process,
+            prov:Entity,
+            prov:Plan .
+
+    <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/untar> a wfdesc:Process,
+            prov:Entity,
+            prov:Plan .
+
+    <urn:hash::sha1:4da1b0556b3ab15c1909c9ad86f781b161255c9f> a wfprov:Artifact,
+            prov:Entity ;
+        prov:value "MyRenamedFile.class"^^xsd:string .
+
+    <urn:hash::sha1:dadad7439e22dbd889775c71b7c3202366f61064> a wfprov:Artifact,
+            prov:Entity .
+
+    <urn:hash::sha1:eb07afb8bc2f3dceff34c8a8e82e5fe716819d6f> a wfprov:Artifact,
+            prov:Entity ;
+        prov:value "Hello.java"^^xsd:string .
+
+    <urn:hash::sha1:fdb876b40ad9ebc7fee873212e02d5940588642e> a wfprov:Artifact,
+            prov:Entity .
+
+    <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> a wfprov:WorkflowEngine,
+            prov:Agent,
+            prov:SoftwareAgent ;
+        rdfs:label "cwltool 3.0.20210124104916"^^xsd:string ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:atTime "2021-03-03T11:44:50.171852"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:e700ad34-dc9b-46f3-a929-e2679187a066> ] .
+
+    <urn:uuid:2323554b-fefe-4c20-85df-89cbbda99b93> a wfprov:WorkflowRun,
+            prov:Activity ;
+        rdfs:label "Run of workflow/packed.cwl#main"^^xsd:string ;
+        prov:qualifiedAssociation [ a prov:Association ;
+                prov:agent <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> ;
+                prov:hadPlan wf:main ] ;
+        prov:qualifiedEnd [ a prov:End ;
+                prov:atTime "2021-03-03T11:44:52.479481"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> ] ;
+        prov:qualifiedStart [ a prov:Start ;
+                prov:atTime "2021-03-03T11:44:50.171945"^^xsd:dateTime ;
+                prov:hadActivity <urn:uuid:6bcdbf09-e12c-4786-8108-7b0a0c8b502a> ] ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:50.212961"^^xsd:dateTime ;
+                prov:entity <urn:uuid:cd0fe38a-2eca-4dd2-929f-5e1e7d5329cb> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/tarball> ],
+            [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:50.212498"^^xsd:dateTime ;
+                prov:entity <urn:hash::sha1:eb07afb8bc2f3dceff34c8a8e82e5fe716819d6f> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/name_of_file_to_extract> ],
+            [ a prov:Usage ;
+                prov:atTime "2021-03-03T11:44:50.212225"^^xsd:dateTime ;
+                prov:entity <urn:hash::sha1:4da1b0556b3ab15c1909c9ad86f781b161255c9f> ;
+                prov:hadRole <arcp://uuid,2323554b-fefe-4c20-85df-89cbbda99b93/workflow/packed.cwl#main/name_after> ] ;
+        prov:startedAtTime "2021-03-03T11:44:50.171879"^^xsd:dateTime .
+}
+
