@@ -3,11 +3,11 @@ import prov
 from prov.dot import prov_to_dot
 
 if __name__ == '__main__':
-    my_prov = prov.read(
-        "E:\Thesis\CwlEnvironmentStarter\prov\metadata\provenance\primary.cwlprov.json")
-
-    dot = prov_to_dot(my_prov)
-    dot.write_png('example-prov.png')
+    # my_prov = prov.read(
+    #     "E:\Thesis\CwlEnvironmentStarter\prov\metadata\provenance\primary.cwlprov.json")
+    #
+    # dot = prov_to_dot(my_prov)
+    # dot.write_png('example-prov.png')
 
     #
     #
