@@ -1,6 +1,33 @@
 import datetime
+import json
+import os
+
 import prov
 from prov.dot import prov_to_dot
+
+
+def prefixedString(prefix, string):
+    return prefix + ":" + string
+
+
+def addFilesToCollection(collection, files):
+    for file in files:
+        filename = file["filename"]
+        root, extension = os.path.splitext(filename)
+
+        collection.hadMember(prefixedString(ID, filename))
+
+        output1 = d1.entity(prefixedString(ID, filename),
+                            [("prov:type", "wfprov:Artifact"), ("prov:type", "wf4ever:File")])
+
+        output1.add_attributes({"cwlprov:basename": filename,
+                                "cwlprov:nameroot": root,
+                                "cwlprov:nameext": extension})
+
+
+
+ID = "id"
+EAAS = "eaas"
 
 if __name__ == '__main__':
     # my_prov = prov.read(
@@ -61,6 +88,17 @@ if __name__ == '__main__':
     os: operating system that is used in an environment
     """
 
+    with open("example.json") as json_file:
+        fileFromBackend = json.load(json_file)
+        print(fileFromBackend)
+
+    file_environment = fileFromBackend["environment"]
+    user = fileFromBackend["user"]
+    file_input = fileFromBackend["input"]
+    file_output = fileFromBackend["output"]
+    metadata = fileFromBackend["metadata"]
+    other = fileFromBackend["other"]
+
     d1.add_namespace('eaas', 'whatever')
     d1.add_namespace('foaf', 'http://www.w3.org/ns/prov#')
     d1.add_namespace("wf4ever", "http://purl.org/wf4ever/wf4ever#")
@@ -68,49 +106,66 @@ if __name__ == '__main__':
     d1.add_namespace("cwlprov", "https://w3id.org/cwl/prov#")
     d1.add_namespace("wfdesc", "http://purl.org/wf4ever/wfdesc#")
 
-    d1.agent("id:eeasUserId", {"foaf:mbox": "abc@def.com"})
+    user = d1.agent(prefixedString(ID, user["userID"]), {"foaf:mbox": user["userMail"]})
 
-    d1.entity("id:myEmulatedTool",
-              {"prov:type": "wfdesc:Process", "wfdesc:hasInput": "id:inputs",
-               "wfdesc:hasOutput": "id:outputs", "eaas:original": "originaltool.com"})
+    tool = d1.entity("id:myEmulatedTool",
+                     {"prov:type": "wfdesc:Process", "wfdesc:hasInput": "id:inputs",
+                      "wfdesc:hasOutput": "id:outputs", "eaas:original": metadata["original"]})
 
-    d1.entity("id:eaas-server", {"eaas:version": "v1.0.0"})
-    d1.entity("id:environment", {"eaas:envId": "eaasEnvironmentId", "eaas:os": "Linux Debian 9"})
+    eaas_server = d1.entity("id:eaas-server",
+                            {prefixedString(EAAS, "version"): other["eaasVersion"]})
+    environment = d1.entity("id:environment",
+                            {prefixedString(EAAS, "envId"): file_environment["environmentId"],
+                             prefixedString(EAAS, "os"): file_environment["os"]})
 
     # TODO enable revision stuff
 
-    d1.wasAttributedTo("id:myEmulatedTool", "id:eeasUserId")
+    tool.wasAttributedTo(user)
 
     emulation_activity = d1.activity("id:myEmulatedToolStorage")
-    d1.wasStartedBy("id:myEmulatedToolStorage", starter="id:eeasUserId",
-                    time=datetime.datetime.now())
+    emulation_activity.wasStartedBy(tool, starter=user, time=datetime.datetime.now())
 
-    emulation_activity.used("id:eaas-server")
-    emulation_activity.used("id:environment")
+    tool.wasGeneratedBy(emulation_activity)
+
+    emulation_activity.used(eaas_server)
+    emulation_activity.used(environment)
     emulation_activity.used("id:inputs")
     emulation_activity.used("id:outputs")
 
-    d1.wasGeneratedBy("id:myEmulatedTool", "id:myEmulatedToolStorage")
-
     inputs = d1.collection("id:inputs")
-    inputs.hadMember("id:Input")
-
-    input1 = d1.entity("id:Input",
-                       [("prov:type", "wfprov:Artifact"), ("prov:type", "wf4ever:File")])
-
-    input1.add_attributes({"cwlprov:basename": "input.txt",
-                           "cwlprov:nameroot": "input",
-                           "cwlprov:nameext": ".txt"})
-
     outputs = d1.collection("id:outputs")
-    outputs.hadMember("id:Output")
 
-    output1 = d1.entity("id:Output",
-                        [("prov:type", "wfprov:Artifact"), ("prov:type", "wf4ever:File")])
+    addFilesToCollection(inputs, file_input)
+    addFilesToCollection(outputs, file_output)
 
-    output1.add_attributes({"cwlprov:basename": "output.txt",
-                            "cwlprov:nameroot": "output",
-                            "cwlprov:nameext": ".txt"})
+    # for inp_file in file_input:
+    #     filename = inp_file["filename"]
+    #     root, extension = os.path.splitext(filename)
+    #     inputs.hadMember(prefixedString(ID, filename))
+    #
+    #     input1 = d1.entity(prefixedString(ID, filename),
+    #                        [("prov:type", "wfprov:Artifact"), ("prov:type", "wf4ever:File")])
+    #
+    #     input1.add_attributes({"cwlprov:basename": filename,
+    #                            "cwlprov:nameroot": root,
+    #                            "cwlprov:nameext": inputs})
+    #
+    # outputs = d1.collection("id:outputs")
+    #
+    # for out_file in file_output:
+    #     filename = out_file["filename"]
+    #     root, extension = os.path.splitext(filename)
+    #
+    #     outputs.hadMember(prefixedString(ID, filename))
+    #
+    #     output1 = d1.entity(prefixedString(ID, filename),
+    #                         [("prov:type", "wfprov:Artifact"), ("prov:type", "wf4ever:File")])
+    #
+    #     output1.add_attributes({"cwlprov:basename": filename,
+    #                             "cwlprov:nameroot": root,
+    #                             "cwlprov:nameext": extension})
+
+
 
     """
     Agent (Nutzer)
@@ -139,6 +194,7 @@ if __name__ == '__main__':
     # d1.serialize('article-prov.ttl', format='rdf', rdf_format='ttl')
     d1.serialize("test-prov.json", format="json");
 
+    dot = prov_to_dot(d1)
+    dot.write_png('article-prov.png')
 
-    # dot = prov_to_dot(d1)
-    # dot.write_png('article-prov.png')
+

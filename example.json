@@ -1,0 +1,35 @@
+{
+  "environment": {
+    "environmentId": "eaasEnvironmentId",
+    "revision": "1.0",
+    "os": "Linux Debian 9"
+  },
+  "user": {
+    "userID": "someId",
+    "userMail": "abc@def.com"
+  },
+  "input": [
+    {
+      "filename": "input1.txt"
+    },
+    {
+      "filename": "input2.txt"
+    }
+  ],
+  "output": [
+    {
+      "filename": "output.txt"
+    }
+  ],
+  "metadata": {
+    "keywords": [
+      "python",
+      "random"
+    ],
+    "original": "originaltool.com",
+    "workflows": []
+  },
+  "other": {
+    "eaasVersion": "commitId"
+  }
+}
