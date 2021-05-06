@@ -4,6 +4,7 @@ import os
 import sys
 
 import prov
+from prov.model import ProvDocument
 # from prov.dot import prov_to_dot
 
 
@@ -46,7 +47,7 @@ if __name__ == '__main__':
 
     # url = "E:\Thesis\workingProv\metadata\provenance\primary.cwlprov.ttl"
 
-    d1 = prov.model.ProvDocument()
+    d1 = ProvDocument()
     # d1.add_namespace('now', 'http://www.provbook.org/nownews/')
     # d1.add_namespace('nowpeople', 'http://www.provbook.org/nownews/people/')
     # d1.add_namespace('bk', 'http://www.provbook.org/ns/#')
@@ -89,7 +90,7 @@ if __name__ == '__main__':
     os: operating system that is used in an environment
     """
 
-    with open(sys.argv[0]) as json_file:
+    with open(sys.argv[1]) as json_file:
         fileFromBackend = json.load(json_file)
         print(fileFromBackend)
 
