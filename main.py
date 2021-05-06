@@ -3,7 +3,7 @@ import json
 import os
 
 import prov
-from prov.dot import prov_to_dot
+# from prov.dot import prov_to_dot
 
 
 def prefixedString(prefix, string):
@@ -194,7 +194,7 @@ if __name__ == '__main__':
     # d1.serialize('article-prov.ttl', format='rdf', rdf_format='ttl')
     d1.serialize("test-prov.json", format="json");
 
-    dot = prov_to_dot(d1)
-    dot.write_png('article-prov.png')
+    # dot = prov_to_dot(d1)
+    # dot.write_png('article-prov.png')
 
 
