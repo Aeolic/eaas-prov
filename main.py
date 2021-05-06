@@ -108,7 +108,7 @@ if __name__ == '__main__':
     d1.add_namespace("cwlprov", "https://w3id.org/cwl/prov#")
     d1.add_namespace("wfdesc", "http://purl.org/wf4ever/wfdesc#")
 
-    user = d1.agent(prefixedString(ID, user["userID"]), {"foaf:mbox": user["userMail"]})
+    user = d1.agent(prefixedString(ID, user["userId"]), {"foaf:mbox": user["userMail"]})
 
     tool = d1.entity("id:myEmulatedTool",
                      {"prov:type": "wfdesc:Process", "wfdesc:hasInput": "id:inputs",
