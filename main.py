@@ -1,6 +1,7 @@
 import datetime
 import json
 import os
+import sys
 
 import prov
 # from prov.dot import prov_to_dot
@@ -88,7 +89,7 @@ if __name__ == '__main__':
     os: operating system that is used in an environment
     """
 
-    with open("example.json") as json_file:
+    with open(sys.argv[0]) as json_file:
         fileFromBackend = json.load(json_file)
         print(fileFromBackend)
 
