@@ -5,7 +5,7 @@
     "os": "Linux Debian 9"
   },
   "user": {
-    "userID": "someId",
+    "userId": "someId",
     "userMail": "abc@def.com"
   },
   "input": [

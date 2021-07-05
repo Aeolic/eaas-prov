@@ -108,6 +108,7 @@ if __name__ == '__main__':
     d1.add_namespace("cwlprov", "https://w3id.org/cwl/prov#")
     d1.add_namespace("wfdesc", "http://purl.org/wf4ever/wfdesc#")
 
+
     user = d1.agent(prefixedString(ID, user["userId"]), {"foaf:mbox": user["userMail"]})
 
     tool = d1.entity("id:myEmulatedTool",
@@ -194,7 +195,10 @@ if __name__ == '__main__':
     """
 
     # d1.serialize('article-prov.ttl', format='rdf', rdf_format='ttl')
-    d1.serialize("test-prov.json", format="json");
+    d1.serialize("test-prov.json", format="json")
+
+    d1.serialize("test-prov-ld.jsonld", format="rdf", rdf_format = "json-ld")
+
 
     # dot = prov_to_dot(d1)
     # dot.write_png('article-prov.png')

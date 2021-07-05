@@ -1,0 +1,124 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ns0: <http://www.openarchives.org/ore/terms/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns1: <http://purl.org/spar/cito/> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A936436eb-2676-44b2-920c-acc5e28384f9>
+  prov:wasGeneratedBy <urn:uuid:aabccb0e-ccc8-4db8-a61d-53eb314906be> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> ;
+  prov:wasDerivedFrom <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Add526f34-f3dc-43ba-8459-e5b7eb682e6b>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ac7281ceb-f97a-4a70-9d4e-f76ff96b1b8c>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ab2ad6e99-4633-4227-bc70-176df9d08bcf>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A68809286-e6ab-400d-b0b1-806ddbb9543f> ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  dc:identifier "urn:uuid:936436eb-2676-44b2-920c-acc5e28384f9"^^xsd:string ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> .
+
+<urn:uuid:5e584828-c9ff-4ca5-b507-01fcc640feea>
+  prov:qualifiedAssociation [
+    prov:hadPlan <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Aadf2f845-af94-445a-b075-b2d22188aad4> ;
+    a prov:Association
+  ] ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Execution> ;
+  dc:identifier "urn:uuid:5e584828-c9ff-4ca5-b507-01fcc640feea"^^xsd:string ;
+  prov:used <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A936436eb-2676-44b2-920c-acc5e28384f9> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ab2ad6e99-4633-4227-bc70-176df9d08bcf>
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  dc:identifier "urn:uuid:b2ad6e99-4633-4227-bc70-176df9d08bcf"^^xsd:string .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Add526f34-f3dc-43ba-8459-e5b7eb682e6b>
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> ;
+  prov:wasGeneratedBy <urn:uuid:f132cc4f-bd0d-4361-ae6d-03be6c8c46dd> ;
+  dc:identifier "urn:uuid:dd526f34-f3dc-43ba-8459-e5b7eb682e6b"^^xsd:string .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A903f8339-6a9d-472a-8311-3b7be9946d5b>
+  dc:identifier "urn:uuid:903f8339-6a9d-472a-8311-3b7be9946d5b"^^xsd:string ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  prov:wasGeneratedBy <urn:uuid:f132cc4f-bd0d-4361-ae6d-03be6c8c46dd> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A58dd1e85-5516-442e-8399-f74e02be71e1>
+  dc:identifier "urn:uuid:58dd1e85-5516-442e-8399-f74e02be71e1"^^xsd:string ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  prov:wasGeneratedBy <urn:uuid:5e584828-c9ff-4ca5-b507-01fcc640feea> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  prov:wasDerivedFrom <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A936436eb-2676-44b2-920c-acc5e28384f9> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb>
+  dc:identifier "urn:uuid:63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb"^^xsd:string ;
+  ns0:describes <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  a ns0:ResourceMap .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A41f1a242-8395-42ff-b488-5a01a7d4e5a6>
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  dc:identifier "urn:uuid:41f1a242-8395-42ff-b488-5a01a7d4e5a6"^^xsd:string ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Program> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation>
+  a ns0:Aggregation ;
+  ns0:aggregates <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Add526f34-f3dc-43ba-8459-e5b7eb682e6b>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ac7281ceb-f97a-4a70-9d4e-f76ff96b1b8c>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ab2ad6e99-4633-4227-bc70-176df9d08bcf>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Aadf2f845-af94-445a-b075-b2d22188aad4>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A936436eb-2676-44b2-920c-acc5e28384f9>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A903f8339-6a9d-472a-8311-3b7be9946d5b>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A8d8b16e2-01a3-437a-aecb-6f87c95180d7>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A68809286-e6ab-400d-b0b1-806ddbb9543f>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A58dd1e85-5516-442e-8399-f74e02be71e1>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A41f1a242-8395-42ff-b488-5a01a7d4e5a6>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A3c812d70-662d-4d61-9fd3-a1fcc84ad7e6> ;
+  dc11:title "DataONE Aggregation" .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40>
+  dc:identifier "urn:uuid:df3c2727-0557-4818-b581-ee8f3d522a40"^^xsd:string ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  ns1:documents <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Add526f34-f3dc-43ba-8459-e5b7eb682e6b>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ac7281ceb-f97a-4a70-9d4e-f76ff96b1b8c>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ab2ad6e99-4633-4227-bc70-176df9d08bcf>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Aadf2f845-af94-445a-b075-b2d22188aad4>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A936436eb-2676-44b2-920c-acc5e28384f9>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A903f8339-6a9d-472a-8311-3b7be9946d5b>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A8d8b16e2-01a3-437a-aecb-6f87c95180d7>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A68809286-e6ab-400d-b0b1-806ddbb9543f>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A58dd1e85-5516-442e-8399-f74e02be71e1>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A41f1a242-8395-42ff-b488-5a01a7d4e5a6>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A3c812d70-662d-4d61-9fd3-a1fcc84ad7e6> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A8d8b16e2-01a3-437a-aecb-6f87c95180d7>
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Program> ;
+  dc:identifier "urn:uuid:8d8b16e2-01a3-437a-aecb-6f87c95180d7"^^xsd:string .
+
+<urn:uuid:aabccb0e-ccc8-4db8-a61d-53eb314906be>
+  prov:used <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Add526f34-f3dc-43ba-8459-e5b7eb682e6b>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ac7281ceb-f97a-4a70-9d4e-f76ff96b1b8c>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ab2ad6e99-4633-4227-bc70-176df9d08bcf>, <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A68809286-e6ab-400d-b0b1-806ddbb9543f> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Execution> ;
+  dc:identifier "urn:uuid:aabccb0e-ccc8-4db8-a61d-53eb314906be"^^xsd:string ;
+  prov:qualifiedAssociation [
+    a prov:Association ;
+    prov:hadPlan <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A8d8b16e2-01a3-437a-aecb-6f87c95180d7>
+  ] .
+
+<urn:uuid:f132cc4f-bd0d-4361-ae6d-03be6c8c46dd>
+  dc:identifier "urn:uuid:f132cc4f-bd0d-4361-ae6d-03be6c8c46dd"^^xsd:string ;
+  prov:qualifiedAssociation [
+    a prov:Association ;
+    prov:hadPlan <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A41f1a242-8395-42ff-b488-5a01a7d4e5a6>
+  ] ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Execution> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A3c812d70-662d-4d61-9fd3-a1fcc84ad7e6>
+  dc:identifier "urn:uuid:3c812d70-662d-4d61-9fd3-a1fcc84ad7e6"^^xsd:string ;
+  prov:wasGeneratedBy <urn:uuid:5e584828-c9ff-4ca5-b507-01fcc640feea> ;
+  prov:wasDerivedFrom <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A936436eb-2676-44b2-920c-acc5e28384f9> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A68809286-e6ab-400d-b0b1-806ddbb9543f>
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> ;
+  dc:identifier "urn:uuid:68809286-e6ab-400d-b0b1-806ddbb9543f"^^xsd:string ;
+  prov:wasGeneratedBy <urn:uuid:f132cc4f-bd0d-4361-ae6d-03be6c8c46dd> ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Ac7281ceb-f97a-4a70-9d4e-f76ff96b1b8c>
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> ;
+  dc:identifier "urn:uuid:c7281ceb-f97a-4a70-9d4e-f76ff96b1b8c"^^xsd:string ;
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Data> ;
+  prov:wasGeneratedBy <urn:uuid:f132cc4f-bd0d-4361-ae6d-03be6c8c46dd> ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> .
+
+<https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Aadf2f845-af94-445a-b075-b2d22188aad4>
+  a <http://purl.dataone.org/provone/2015/01/15/ontology#Program> ;
+  dc:identifier "urn:uuid:adf2f845-af94-445a-b075-b2d22188aad4"^^xsd:string ;
+  ns0:isAggregatedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3A63ac03cb-6fea-4013-8fc7-25d2ff5cc8cb#aggregation> ;
+  ns1:isDocumentedBy <https://cn-stage-2.test.dataone.org/cn/v2/resolve/urn%3Auuid%3Adf3c2727-0557-4818-b581-ee8f3d522a40> .
