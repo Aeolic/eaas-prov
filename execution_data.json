@@ -1,0 +1,20 @@
+{
+  "environmentId": "65e75ba0-63f9-4c4e-9cea-04e3f97f4b66",
+  "startedAt": "2021-07-21T12:11:40.162511",
+  "endedAt": "2021-07-21T12:11:40.162511",
+  "inputFolder": "/input",
+  "outputFolder": "output",
+  "arguments": {
+    "0": "ls",
+    "1": "/home"
+  },
+  "inputs": [
+    "file1.txt",
+    "file2.txt"
+  ],
+  "outputs": [
+    "container-log.log",
+    "outputfile.txt"
+  ],
+  "user" : "testUser"
+}

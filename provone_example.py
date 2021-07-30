@@ -33,7 +33,7 @@ creation = creation_data["creation"]
 container = creation_data["container"]
 
 environmentId = env["environmentId"]
-env_os = env["os"]
+os = env["os"]
 title = env["title"]
 description = env["description"]
 
@@ -71,53 +71,66 @@ tool.wasDerivedFrom(original)
 
 environment = d1.entity("eaas:environment",
                         {prefixedString(EAAS, "envId"): environmentId,
-                         prefixedString(EAAS, "os"): env_os,
+                         prefixedString(EAAS, "os"): os,
                          prefixedString("dcterms", "date"): createdAt})
 # execution provenance
 
-input_port = d1.input_port("eaas:input", {":inputFolder": inputFolder})
-output_port = d1.output_port("eaas:output", {":outputFolder": outputFolder})
+input_port = d1.input_port("eaas:input")
+output_port = d1.output_port("eaas:output")
 
 d1.has_out_ports(tool, output_port)
 d1.has_in_ports(tool, input_port)
 
-tool_execution = d1.processExec("eaas:exec", startTime=startedAt, endTime=endedAt)
+tool_execution = d1.processExec("eaas:exec", startTime=datetime.datetime.now(),
+                                endTime=datetime.datetime.now())
 
-logged_in_user = d1.user(":" + user)
+logged_in_user = d1.user("eaas:logged_in_user")
 
 tool_execution.used(environment)
 tool_execution.wasAssociatedWith(logged_in_user)
 # asso = d1.association(tool_execution,)
 # asso.add_attributes({"provone:hadPlan" : tool})
 
-for i, inp_file in enumerate(inputs):
-    inp = d1.data(":input{0}".format(i + 1),
+
+input1 = d1.data("eaas:input1", [(PROV_TYPE, WFPROV["Artifact"]), (PROV_TYPE, WF4EVER["File"])])
+
+input1.add_attributes({"cwlprov:basename": "input1.txt",
+                       "cwlprov:nameroot": "input1",
+                       "cwlprov:nameext": "txt"})
+tool_execution.used(input1)
+
+input_usage = d1.usage(tool_execution, input1)
+input_usage.add_attributes({"provone:hadInPort": input_port})
+
+# TODO PRONOM PUIDS
+output1 = d1.data("eaas:output1",
                   [(PROV_TYPE, WFPROV["Artifact"]), (PROV_TYPE, WF4EVER["File"])])
+output1.add_attributes({"cwlprov:basename": "file_0.txt",
+                        "cwlprov:nameroot": "file_0",
+                        "cwlprov:nameext": "txt"})
 
-    root, extension = os.path.splitext(inp_file)
-    inp.add_attributes({"cwlprov:basename": inp_file,
-                        "cwlprov:nameroot": root,
-                        "cwlprov:nameext": extension})
-    tool_execution.used(inp)
-    input_usage = d1.usage(tool_execution, inp)
-    input_usage.add_attributes({"provone:hadInPort": input_port})
-
-for o, out_file in enumerate(outputs):
-    out = d1.data(":output{0}".format(o + 1),
+output2 = d1.data("eaas:output2",
                   [(PROV_TYPE, WFPROV["Artifact"]), (PROV_TYPE, WF4EVER["File"])])
+output2.add_attributes({"cwlprov:basename": "additionalFile.txt",
+                        "cwlprov:nameroot": "additionalFile",
+                        "cwlprov:nameext": "txt"})
 
-    root, extension = os.path.splitext(out_file)
-    out.add_attributes({"cwlprov:basename": out_file,
-                        "cwlprov:nameroot": root,
-                        "cwlprov:nameext": extension})
-    tool_execution.used(out)
-    output_generation = d1.generation(out, tool_execution)
-    output_generation.add_attributes({"provone:hadOutport": output_port})
+output_log = d1.data("eaas:logfile",
+                     [(PROV_TYPE, WFPROV["Artifact"]), (PROV_TYPE, WF4EVER["File"])])
+output_log.add_attributes(
+    {"cwlprov:basename": "container-log-f711ca19-ac31-44b7-b8eb-58bf705b79e8.log",
+     "cwlprov:nameroot": "container-log-f711ca19-ac31-44b7-b8eb-58bf705b79e8",
+     "cwlprov:nameext": "log"})
 
-# TODO PRONOM
+output_generation1 = d1.generation(output1, tool_execution)
+output_generation1.add_attributes({"provone:hadOutport": output_port})
+output_generation2 = d1.generation(output2, tool_execution)
+output_generation2.add_attributes({"provone:hadOutport": output_port})
+
+log_generation = d1.generation(output_log, tool_execution)
 
 # d1.serialize("test-provone-json.json", format="json")
-d1.serialize("{0}_provone.jsonld".format(environmentId), format="rdf", rdf_format="json-ld")
-d1.serialize("{0}_provone.ttl".format(environmentId), format='rdf', rdf_format='ttl')
+d1.serialize("test-provone-ld.jsonld", format="rdf", rdf_format="json-ld")
+d1.serialize('test-provone-rdf.ttl', format='rdf', rdf_format='ttl')
 
 # dot.write_png('provone-example.png')

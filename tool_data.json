@@ -1,0 +1,22 @@
+{
+	"environment": {
+		"environmentId": "65e75ba0-63f9-4c4e-9cea-04e3f97f4b66",
+		"revision": "",
+		"os": "",
+		"title": "ENV TITLE",
+		"description": "description abcdef"
+	},
+	"creation": {
+		"userId": "CWL Rewriter",
+		"createdAt": "2021-07-21T12:11:40.162511"
+	},
+	"other": {
+		"eaasVersion": "${GIT.COMMIT.ID.ABBREV}"
+	},
+	"container": {
+		"tag": "2.1.6--py36_0",
+		"digest": "sha256:ad0751de25f95c9a76d4ba72c7c990937e93f45c0752b3dea122673a2700b256",
+		"containerUrl": "docker://quay.io/biocontainers/biom-format",
+		"image": "https://historic-builds.emulation.cloud:443/blobstore/api/v1/blobs/imagebuilder-outputs/fa815dd9-51c8-483a-a225-5ed00674210d"
+	}
+}
