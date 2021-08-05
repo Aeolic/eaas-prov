@@ -59,7 +59,7 @@ outputs = execution_data["outputs"]
 user = execution_data["user"]
 
 # tool provenance
-
+print("Validated input data, creating tool provenance")
 original = d1.process(":originalTool", {":digest": digest, ":url": containerUrl, ":tag": tag,
                                         prefixedString("dcterms", "date"): createdAt})
 
@@ -73,6 +73,8 @@ environment = d1.entity("eaas:environment",
                         {prefixedString(EAAS, "envId"): environmentId,
                          prefixedString(EAAS, "os"): env_os,
                          prefixedString("dcterms", "date"): createdAt})
+print("Creating execution provenance")
+
 # execution provenance
 
 input_port = d1.input_port("eaas:input", {":inputFolder": inputFolder})
@@ -115,7 +117,7 @@ for o, out_file in enumerate(outputs):
     output_generation.add_attributes({"provone:hadOutport": output_port})
 
 # TODO PRONOM
-
+print("Writing to file:", "{0}_provone.jsonld".format(environmentId))
 # d1.serialize("test-provone-json.json", format="json")
 d1.serialize("{0}_provone.jsonld".format(environmentId), format="rdf", rdf_format="json-ld")
 d1.serialize("{0}_provone.ttl".format(environmentId), format='rdf', rdf_format='ttl')
