@@ -51,8 +51,8 @@ for i in range(len(sys.argv) - 2):
 
 startedAt = execution_data["startedAt"]
 endedAt = execution_data["endedAt"]
-inputFolder = execution_data["inputFolder"]
-outputFolder = execution_data["outputFolder"]
+# inputFolder = execution_data["inputFolder"]
+# outputFolder = execution_data["outputFolder"]
 
 inputs = execution_data["inputs"]
 outputs = execution_data["outputs"]
@@ -77,8 +77,8 @@ print("Creating execution provenance")
 
 # execution provenance
 
-input_port = d1.input_port("eaas:input", {":inputFolder": inputFolder})
-output_port = d1.output_port("eaas:output", {":outputFolder": outputFolder})
+input_port = d1.input_port("eaas:input")#, {":inputFolder": inputFolder})
+output_port = d1.output_port("eaas:output")#, {":outputFolder": outputFolder})
 
 d1.has_out_ports(tool, output_port)
 d1.has_in_ports(tool, input_port)
