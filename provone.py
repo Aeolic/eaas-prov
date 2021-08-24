@@ -11,7 +11,7 @@ from prov.identifier import Namespace
 from main import prefixedString, EAAS
 
 
-def download_inputs(blobstore_url):
+def download_blob(blobstore_url, ):
     print("Downloading inputs from", blobstore_url)
     blobstore_response = requests.get(blobstore_url)
 
@@ -30,13 +30,24 @@ def download_inputs(blobstore_url):
         return f
 
 
-def handle_outputs(output_dir, work_dir="/"):
-    # TODO use CWL glob if provided?
-    # TODO add work dir
-    print("Handling outputs from:", output_dir)
-    files = [f for f in listdir(output_dir) if os.path.isfile(os.path.join(output_dir, f))]
-    print("Output:", files)
-    return files
+def handle_outputs(blobstore_url, work_dir="/"):
+    print("Downloading outputs from", blobstore_url)
+    blobstore_response = requests.get(blobstore_url)
+
+    with tempfile.TemporaryDirectory() as tmp_dir2:
+        tar_path = "output_files_prov.tgz"
+        with open(tar_path, "wb") as f:
+            f.write(blobstore_response.content)
+
+        with tarfile.open(tar_path, "r:gz") as zip_ref:
+            zip_ref.extractall(path=tmp_dir2)
+
+        # TODO use CWL glob if provided?
+        # TODO add work dir
+        print("Handling outputs from:", tmp_dir2)
+        files = [f for f in listdir(tmp_dir2) if os.path.isfile(os.path.join(tmp_dir2, f))]
+        print("Output:", files)
+        return files
 
 
 def main():
@@ -94,7 +105,7 @@ def main():
     # inputFolder = execution_data["inputFolder"]
     # outputFolder = execution_data["outputFolder"]
 
-    inputBlobstoreURL = download_inputs(execution_data["inputBlobstoreURL"])
+    inputBlobstoreURL = download_blob(execution_data["inputBlobstoreURL"])
     outPutDir = handle_outputs(output_dir)
     user = execution_data["user"]
 
@@ -170,7 +181,7 @@ def main():
 
 
 if __name__ == '__main__':
-    # download_inputs(
+    # download_blob(
     #     'https://historic-builds.emulation.cloud:443/blobstore/api/v1/blobs/user-upload/a606bf91-38f8-4456-bd88-0137136b8bd7?access_token=default')
     # handle_outputs("test")
     main()

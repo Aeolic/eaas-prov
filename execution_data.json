@@ -7,6 +7,6 @@
     "1": "/home"
   },
   "user" : "testUser",
-  "inputBlobstoreURL" :  "https://historic-builds.emulation.cloud:443/blobstore/api/v1/blobs/user-upload/a606bf91-38f8-4456-bd88-0137136b8bd7?access_token=default"
+  "inputBlobstoreURL" :  "https://historic-builds.emulation.cloud:443/blobstore/api/v1/blobs/user-upload/42fe0437-4f8f-4f88-8848-9b5f46c10bd4?access_token=default"
 
 }
