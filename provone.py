@@ -21,7 +21,29 @@ def download_blob(blobstore_url, ):
             f.write(blobstore_response.content)
 
         with tarfile.open(tar_path, "r:gz") as zip_ref:
-            zip_ref.extractall(path=tmp_dir)
+            
+            import os
+            
+            def is_within_directory(directory, target):
+                
+                abs_directory = os.path.abspath(directory)
+                abs_target = os.path.abspath(target)
+            
+                prefix = os.path.commonprefix([abs_directory, abs_target])
+                
+                return prefix == abs_directory
+            
+            def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+            
+                for member in tar.getmembers():
+                    member_path = os.path.join(path, member.name)
+                    if not is_within_directory(path, member_path):
+                        raise Exception("Attempted Path Traversal in Tar File")
+            
+                tar.extractall(path, members, numeric_owner=numeric_owner) 
+                
+            
+            safe_extract(zip_ref, path=tmp_dir)
 
         f = []
         for root, dirs, files in os.walk(tmp_dir):
@@ -40,7 +62,26 @@ def handle_outputs(blobstore_url, work_dir="/"):
             f.write(blobstore_response.content)
 
         with tarfile.open(tar_path, "r:gz") as zip_ref:
-            zip_ref.extractall(path=tmp_dir2)
+            def is_within_directory(directory, target):
+                
+                abs_directory = os.path.abspath(directory)
+                abs_target = os.path.abspath(target)
+            
+                prefix = os.path.commonprefix([abs_directory, abs_target])
+                
+                return prefix == abs_directory
+            
+            def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+            
+                for member in tar.getmembers():
+                    member_path = os.path.join(path, member.name)
+                    if not is_within_directory(path, member_path):
+                        raise Exception("Attempted Path Traversal in Tar File")
+            
+                tar.extractall(path, members, numeric_owner=numeric_owner) 
+                
+            
+            safe_extract(zip_ref, path=tmp_dir2)
 
         # TODO use CWL glob if provided?
         # TODO add work dir
